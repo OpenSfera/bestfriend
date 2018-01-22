@@ -1,0 +1,14 @@
+[Unit]
+Description=BestFriend - OpenSfera Service
+After=mongodb.service
+
+[Service]
+Type=idle
+User=sfera
+WorkingDirectory=/usr/local/sfera/bestfriend
+ExecStart=/usr/bin/node /usr/local/sfera/bestfriend/index.js
+ExecStartPost=/bin/bash /usr/local/sfera/bestfriend/binder.sh
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
